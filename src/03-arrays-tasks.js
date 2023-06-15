@@ -234,6 +234,13 @@ function toArrayOfSquares(arr) {
  *   [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ] => [ 1, 3, 6, 10, 15, 21, 28, 36, 45, 55 ]
  */
 function getMovingSum(/* arr */) {
+  // const newArr = [];
+  // let count = 0;
+  // for (let i = 0; i < arr.length; i + 1) {
+  //   count += arr[i];
+  //   newArr.push(count);
+  // }
+  // return newArr;
   throw new Error('Not implemented');
 }
 
@@ -248,8 +255,8 @@ function getMovingSum(/* arr */) {
  * [ 'a', 'b', 'c' , null ]  => [ "b", null ]
  * [ "a" ] => []
  */
-function getSecondItems(/* arr */) {
-  throw new Error('Not implemented');
+function getSecondItems(arr) {
+  return arr.filter((elem, index) => index % 2);
 }
 
 
@@ -268,6 +275,9 @@ function getSecondItems(/* arr */) {
  *  [ 1,2,3,4,5 ] => [ 1, 2,2, 3,3,3, 4,4,4,4, 5,5,5,5,5 ]
  */
 function propagateItemsByPositionIndex(/* arr */) {
+  // return arr.map((elem, index) => {
+  //   elem.repeat(index + 1);
+  // })
   throw new Error('Not implemented');
 }
 
