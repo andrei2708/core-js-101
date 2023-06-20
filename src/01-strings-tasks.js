@@ -203,13 +203,12 @@ function extractEmails(str) {
  *             '└──────────┘\n'
  *
  */
-function getRectangleString(/* width, height */) {
-  // const lineBreak = '\n';
-  // const firstStr = `┌${'─'.repeat(width - 2)}┐${lineBreak}`;
-  // const centerStr = `│${' '.repeat(width - 2)}│${lineBreak}`;
-  // const lastStr = `└${'─'.repeat(width - 2)}┘`;
-  // return firstStr + centerStr.repeat(height - 1) + lastStr;
-  throw new Error('Not implemented');
+function getRectangleString(width, height) {
+  const firstStr = `\u250C${'\u2500'.repeat(width - 2)}\u2510\n`;
+  const centerStr = `\u2502${' '.repeat(width - 2)}\u2502\n`;
+  const lastStr = `\u2514${'\u2500'.repeat(width - 2)}\u2518\n`;
+  return firstStr + centerStr.repeat(height - 2) + lastStr;
+  // throw new Error('Not implemented');
 }
 
 
@@ -229,8 +228,13 @@ function getRectangleString(/* width, height */) {
  *    => 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
-function encodeToRot13(/* str */) {
-  throw new Error('Not implemented');
+function encodeToRot13(str) {
+  const input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz'.split('');
+  const output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'.split('');
+  return str.split('').map((letter) => {
+    if (input.includes(letter)) return output[input.indexOf(letter)];
+    return letter;
+  }).join('');
 }
 
 /**
@@ -246,8 +250,8 @@ function encodeToRot13(/* str */) {
  *   isString('test') => true
  *   isString(new String('test')) => true
  */
-function isString(/* value */) {
-  throw new Error('Not implemented');
+function isString(value) {
+  return typeof value === 'string' || value instanceof String;
 }
 
 
@@ -275,8 +279,15 @@ function isString(/* value */) {
  *   'Q♠' => 50
  *   'K♠' => 51
  */
-function getCardId(/* value */) {
-  throw new Error('Not implemented');
+function getCardId(value) {
+  const arrCards = [
+    'A♣', '2♣', '3♣', '4♣', '5♣', '6♣', '7♣', '8♣', '9♣', '10♣', 'J♣', 'Q♣', 'K♣',
+    'A♦', '2♦', '3♦', '4♦', '5♦', '6♦', '7♦', '8♦', '9♦', '10♦', 'J♦', 'Q♦', 'K♦',
+    'A♥', '2♥', '3♥', '4♥', '5♥', '6♥', '7♥', '8♥', '9♥', '10♥', 'J♥', 'Q♥', 'K♥',
+    'A♠', '2♠', '3♠', '4♠', '5♠', '6♠', '7♠', '8♠', '9♠', '10♠', 'J♠', 'Q♠', 'K♠',
+  ];
+  return arrCards.indexOf(value);
+  // throw new Error('Not implemented');
 }
 
 
